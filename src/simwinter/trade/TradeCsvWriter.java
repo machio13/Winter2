@@ -11,10 +11,10 @@ public class TradeCsvWriter {
     public void writeTrade(File masterFile, File tradeFile) {
 
         String ticker = TradeValidation.addTicker(masterFile);
-        LocalDateTime tradedDatetime = TradeValidation.addTradeTime(ticker, tradeFile);
+        LocalDateTime tradedDatetime = TradeValidation.addTradeTime();
         String name = "";
-        TradeSide side = TradeValidation.addSide(ticker, tradedDatetime, tradeFile);
-        long quantity = TradeValidation.addQuantity(ticker,tradedDatetime, tradeFile, side);
+        TradeSide side = TradeValidation.addSide();
+        long quantity = TradeValidation.addQuantity();
         BigDecimal tradeUnitPrice = TradeValidation.addUnitPrice();
         LocalDateTime inputDatetime = TradeValidation.addInputDatetime();
 

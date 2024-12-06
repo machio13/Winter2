@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class TradeValidation {
     static Scanner scanner = new Scanner(System.in);
 
-    public static LocalDateTime addTradeTime(String ticker, File tradeFile) {
+    public static LocalDateTime addTradeTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd/HH:mm").withResolverStyle(ResolverStyle.STRICT);
         String userInputStr = "";
         LocalDateTime userInput = null;
@@ -67,7 +67,7 @@ public class TradeValidation {
         return userInput;
     }
 
-    public static TradeSide addSide(String ticker, LocalDateTime time, File tradeFile) {
+    public static TradeSide addSide() {
         String userInputStr = "";
         TradeSide userInput = null;
         boolean check = true;
@@ -90,7 +90,7 @@ public class TradeValidation {
         }return userInput;
     }
 
-    public static long addQuantity(String ticker,LocalDateTime time, File tradeFile, TradeSide side) {
+    public static long addQuantity() {
         String userInputStr = "";
         long userInput = 0;
         boolean check = true;
