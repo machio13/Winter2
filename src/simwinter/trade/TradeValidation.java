@@ -100,17 +100,7 @@ public class TradeValidation {
             try {
                 userInput = Long.parseLong(userInputStr);
                 if (userInput % 100 == 0 && userInput > 0) {
-                    long checkQuantity = Checks.quantityCheck(ticker, time, tradeFile);
-                    if (Checks.sideCheck(side)) {
-                        check = false;
-
-                    }else {
-                        if (userInput <= checkQuantity) {
-                            check = false;
-                        } else {
-                            System.out.println("保有数が" + checkQuantity + "なので" + userInput + "は不可能です。");
-                        }
-                    }
+                    check = false;
                 }else {
                     System.out.println("100株単位で入力してください");
                 }
