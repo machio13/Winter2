@@ -26,9 +26,6 @@ public class TradeValidation {
             try{
                 userInput = LocalDateTime.parse(userInputStr, formatter);
                 DayOfWeek dayOfWeek = userInput.getDayOfWeek();
-
-                if (Checks.tradedDatetimeCheck(ticker, userInput, tradeFile)) {
-
                     if (userInput.isBefore(today) || userInput.equals(today)) {
                         switch (dayOfWeek) {
                             case SATURDAY, SUNDAY -> {
@@ -47,9 +44,6 @@ public class TradeValidation {
                     } else {
                         System.out.println("日付が未来になっています。");
                     }
-                }else {
-                    System.out.println("最新の取引時間より前の時間を入力しています。不可能。");
-                }
             }catch (DateTimeParseException e) {
                 System.out.println("フォーマット通り記入し直して");
             }
@@ -83,13 +77,7 @@ public class TradeValidation {
             switch (userInputStr) {
                 case "Sell" -> {
                     userInput = TradeSide.Sell;
-                    long checkQuantity = Checks.quantityCheck(ticker, time, tradeFile);
-                    System.out.println(checkQuantity);
-                    if (checkQuantity > 0) {
-                        check = false;
-                    }else {
-                        System.out.println("保有数が0以下です。");
-                    }
+                    check = false;
                 }
                 case "Buy" -> {
                     userInput = TradeSide.Buy;
