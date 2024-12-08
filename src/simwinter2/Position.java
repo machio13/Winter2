@@ -29,16 +29,6 @@ public class Position {
         this.unrealizedProfitAndLoss = unrealizedProfitAndLoss;
     }
 
-//    public Position(String ticker, String name, long quantity, BigDecimal averageUnitPrice, BigDecimal acquisitionCost, BigDecimal realizedProfitAndLoss, BigDecimal valuation, BigDecimal unrealizedProfitAndLoss) {
-//        this.ticker = ticker;
-//        this.name = name;
-//        this.quantity = quantity;
-//        this.averageUnitPrice = averageUnitPrice;
-//        this.acquisitionCost = acquisitionCost;
-//        this.realizedProfitAndLoss = realizedProfitAndLoss;
-//        this.valuation = valuation;
-//        this.unrealizedProfitAndLoss = unrealizedProfitAndLoss;
-//    }
 
     public String getName() {
         return name;

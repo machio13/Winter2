@@ -43,12 +43,12 @@ public class NewPositionInput {
                         BigDecimal tradeQuantity = new BigDecimal(trade.getTradeQuantity());
                         BigDecimal positionUnitPrice = position.getAverageUnitPrice();
 
-                        if (marketPrice == null || position.getTicker().equals(marketPrice.getTicker())) {
+//                        if (marketPrice == null || position.getTicker().equals(marketPrice.getTicker())) {
                             BigDecimal element = tradeUnitPrice.subtract(positionUnitPrice);
 
                             position.realizedProfitAndLoss = tradeQuantity.multiply(element);
                             position.quantity -= trade.getTradeQuantity();
-                        }
+//                        }
                     }
                 }
             }
