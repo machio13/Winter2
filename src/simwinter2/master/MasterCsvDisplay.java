@@ -1,17 +1,13 @@
 package simwinter2.master;
 
-import generalsimwinter.CutName;
-import generalsimwinter.Formater;
-import generalsimwinter.master.Market;
-import generalsimwinter.master.Stock;
+import simwinter2.CutName;
+import simwinter2.Formater;
 
 import java.util.List;
 
-
-
 public class MasterCsvDisplay extends CutName{
 
-    public void shouMarket(List<generalsimwinter.master.Stock> stockersList) {
+    public void shouMarket(List<Stock> stockersList) {
         System.out.println("|===========================================================================|");
         System.out.println("| Ticker | Name                               | Market   | SharesIssued     |");
         System.out.println("|--------+------------------------------------+----------+------------------|");

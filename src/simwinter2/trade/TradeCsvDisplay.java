@@ -1,15 +1,13 @@
 package simwinter2.trade;
 
-import generalsimwinter.CutName;
-import generalsimwinter.Formater;
-import generalsimwinter.trade.Trade;
-import generalsimwinter.trade.TradeSide;
+import simwinter2.CutName;
+import simwinter2.Formater;
 
 import java.util.List;
 
 public class TradeCsvDisplay extends CutName {
 
-    public void showTrade(List<generalsimwinter.trade.Trade> tradeList) {
+    public void showTrade(List<Trade> tradeList) {
         System.out.println("|=========================================================================================================================|");
         System.out.println("| Traded Datetime  | Ticker | Name                            | Side | Quantity     | Trade Unit Price | Input Datetime   |");
         System.out.println("|------------------+--------+---------------------------------+------+--------------+------------------+------------------|");

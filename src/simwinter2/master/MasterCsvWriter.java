@@ -1,9 +1,5 @@
 package simwinter2.master;
 
-import generalsimwinter.master.Market;
-import generalsimwinter.master.MasterValidation;
-import generalsimwinter.master.Stock;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -18,7 +14,7 @@ public class MasterCsvWriter {
         Market market = MasterValidation.addMarket();
         BigDecimal sharesIssued = MasterValidation.addSharesIssued();
 
-        generalsimwinter.master.Stock stock = new Stock(ticker, name, market, sharesIssued);
+        Stock stock = new Stock(ticker, name, market, sharesIssued);
 
         try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(masterFile, true))) {
             bufferedWriter.write(stock.getTicker() + "," + stock.getName() + "," + stock.getMarket().getFirstChar() + "," + stock.getSharesIssued());

@@ -1,7 +1,5 @@
 package simwinter2.contact;
 
-import generalsimwinter.contact.Menu;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -9,4 +7,3 @@ public class Main {
         menu.menuSelect();
     }
 }
-

@@ -1,7 +1,6 @@
 package simwinter2.trade;
 
-import generalsimwinter.Checks;
-import generalsimwinter.trade.TradeSide;
+import simwinter2.Checks;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -15,7 +14,7 @@ import java.util.Scanner;
 public class TradeValidation {
     static Scanner scanner = new Scanner(System.in);
 
-    public static LocalDateTime addTradeTime() {
+    public static LocalDateTime addTradeTime(String ticker, File tradeFile) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd/HH:mm").withResolverStyle(ResolverStyle.STRICT);
         String userInputStr = "";
         LocalDateTime userInput = null;
@@ -27,6 +26,8 @@ public class TradeValidation {
             try{
                 userInput = LocalDateTime.parse(userInputStr, formatter);
                 DayOfWeek dayOfWeek = userInput.getDayOfWeek();
+                if (Checks.isTradeTimeCheck(ticker, userInput, tradeFile)) {
+
                     if (userInput.isBefore(today) || userInput.equals(today)) {
                         switch (dayOfWeek) {
                             case SATURDAY, SUNDAY -> {
@@ -45,6 +46,9 @@ public class TradeValidation {
                     } else {
                         System.out.println("日付が未来になっています。");
                     }
+                }else {
+                    System.out.println("最新時間よりも過去の時間になっています。修正してください。");
+                }
             }catch (DateTimeParseException e) {
                 System.out.println("フォーマット通り記入し直して");
             }
@@ -68,17 +72,23 @@ public class TradeValidation {
         return userInput;
     }
 
-    public static generalsimwinter.trade.TradeSide addSide() {
+    public static TradeSide addSide(String ticker, LocalDateTime time, File tradeFile) {
         String userInputStr = "";
-        generalsimwinter.trade.TradeSide userInput = null;
+        TradeSide userInput = null;
         boolean check = true;
         while (check) {
             System.out.print("売買区分(Sell or Buy)>");
             userInputStr = scanner.nextLine();
             switch (userInputStr) {
                 case "Sell" -> {
-                    userInput = generalsimwinter.trade.TradeSide.Sell;
-                    check = false;
+                    userInput = TradeSide.Sell;
+                    long totalQuantity = Checks.isQuantityCheck(ticker, time, tradeFile);
+                    System.out.println(totalQuantity);
+                    if (totalQuantity > 0) {
+                        check = false;
+                    }else {
+                        System.out.println("保有数量が０以下です");
+                    }
                 }
                 case "Buy" -> {
                     userInput = TradeSide.Buy;
@@ -91,7 +101,8 @@ public class TradeValidation {
         }return userInput;
     }
 
-    public static long addQuantity() {
+
+    public static long addQuantity(String ticker, LocalDateTime time, File tradeFile, TradeSide side) {
         String userInputStr = "";
         long userInput = 0;
         boolean check = true;
@@ -101,7 +112,16 @@ public class TradeValidation {
             try {
                 userInput = Long.parseLong(userInputStr);
                 if (userInput % 100 == 0 && userInput > 0) {
-                    check = false;
+                    long totalQuantity = Checks.isQuantityCheck(ticker, time, tradeFile);
+                    if (Checks.isSideCheck(side)) {
+                        check = false;
+                    } else {
+                        if (userInput <= totalQuantity) {
+                            check = false;
+                        }else {
+                            System.out.println("保有数量が" + totalQuantity + "のため" + userInput + "は不可能です。");
+                        }
+                    }
                 }else {
                     System.out.println("100株単位で入力してください");
                 }

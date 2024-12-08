@@ -1,7 +1,6 @@
 package simwinter2.master;
 
-import generalsimwinter.Checks;
-import generalsimwinter.master.Market;
+import simwinter2.Checks;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -47,8 +46,8 @@ public class MasterValidation {
         return userInput;
     }
 
-    public static generalsimwinter.master.Market addMarket() {
-        generalsimwinter.master.Market userInput = null;
+    public static Market addMarket() {
+        Market userInput = null;
         String userInputStr = "";
         boolean check = true;
         while (check) {
@@ -56,11 +55,11 @@ public class MasterValidation {
             userInputStr = scanner.nextLine();
             switch (userInputStr) {
                 case "P" -> {
-                    userInput = generalsimwinter.master.Market.Prime;
+                    userInput = Market.Prime;
                     check = false;
                 }
                 case "S" -> {
-                    userInput = generalsimwinter.master.Market.Standard;
+                    userInput = Market.Standard;
                     check = false;
                 }
                 case "G" -> {

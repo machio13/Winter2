@@ -1,13 +1,14 @@
 package simwinter2.contact;
 
-import generalsimwinter.master.MasterCsvDisplay;
-import generalsimwinter.master.MasterCsvReader;
-import generalsimwinter.master.MasterCsvWriter;
-import generalsimwinter.master.Stock;
-import generalsimwinter.trade.Trade;
-import generalsimwinter.trade.TradeCsvDisplay;
-import generalsimwinter.trade.TradeCsvReader;
-import generalsimwinter.trade.TradeCsvWriter;
+import simwinter2.*;
+import simwinter2.master.MasterCsvDisplay;
+import simwinter2.master.MasterCsvReader;
+import simwinter2.master.MasterCsvWriter;
+import simwinter2.master.Stock;
+import simwinter2.trade.Trade;
+import simwinter2.trade.TradeCsvDisplay;
+import simwinter2.trade.TradeCsvReader;
+import simwinter2.trade.TradeCsvWriter;
 
 import java.io.File;
 import java.util.List;
@@ -30,9 +31,9 @@ public class Menu {
             System.out.println("9. アプリケーションを終了します");
             System.out.print("入力してください:");
             String userInput = scanner.nextLine();
-            File marketCsvFile = new File("src/SimWinter/csvfile/Master.csv");
-            File tradeCsvFile = new File("src/SimWinter/csvfile/TradeData.csv");
-            File marketPriceFile = new File("src/simwinter/MarketPrice.csv");
+            File marketCsvFile = new File("src/simwinter2/csvfile/Master.csv");
+            File tradeCsvFile = new File("src/simwinter2/csvfile/TradeData.csv");
+            File marketPriceFile = new File("src/simwinter2/MarketPrice.csv");
 
             switch (userInput) {
                 case "1" -> {
@@ -59,11 +60,18 @@ public class Menu {
                 }
                 case "5" -> {
                     System.out.println("「保有ポジション表示」が選択されました。スッテプ６");
-
+                    List<Trade> tradeList = TradeCsvReader.readTradeCsv(tradeCsvFile);
+                    List<Position> positionList = PositionInput.sumPosition(tradeList);
+                    PositionDisplay positionDisplay = new PositionDisplay();
+                    positionDisplay.showDisplay(positionList);
                 }
                 case "6" -> {
                     System.out.println("「保有ポジション表示」が選択されました。ステップ７");
-
+                    List<Trade> tradeList = TradeCsvReader.readTradeCsv(tradeCsvFile);
+                    List<MarketPrice> marketPriceList = MarketPriceReader.readeMarketPrice(marketPriceFile);
+                    List<Position> positionList = NewPositionInput.NewInput(tradeList, marketPriceList);
+                    NewPositionDisplay newPositionDisplay = new NewPositionDisplay();
+                    newPositionDisplay.showPosition(positionList, marketPriceList);
                 }
                 case "9" -> {
                     System.out.println("アプリケーションを終了します。");

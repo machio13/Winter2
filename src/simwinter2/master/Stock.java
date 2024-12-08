@@ -1,7 +1,5 @@
 package simwinter2.master;
 
-import generalsimwinter.master.Market;
-
 import java.math.BigDecimal;
 
 public class Stock {

@@ -1,6 +1,5 @@
 package simwinter2.trade;
 
-import generalsimwinter.trade.TradeSide;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
