@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 
 public class Formater {
 
@@ -19,8 +18,8 @@ public class Formater {
         return decimalFormat.format(updateQuantity);
     }
 
-    public static String isUnitPriceFormat(BigDecimal unitPrice) {
-        DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
+    public static String isDecimalFormat(BigDecimal unitPrice) {
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         return decimalFormat.format(unitPrice);
     }
 

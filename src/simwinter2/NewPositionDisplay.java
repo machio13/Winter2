@@ -25,18 +25,19 @@ public class NewPositionDisplay extends CutName{
             BigDecimal acquisitionCost = MakeValuation.isAcquisitionCost(quantity, averageUnitPrice);
             BigDecimal unrealizedPnL = valuation.subtract(acquisitionCost);
 
-            String formattedAverage = Formater.isBigDecimalFormat(averageUnitPrice);
-            String formattedRealizePnL = Formater.isBigDecimalFormat(realizedPnL);
+            String formattedQuantity = Formater.isLongFormat(quantity);
+            String formattedAverageUnitPrice = Formater.isDecimalFormat(averageUnitPrice);
+            String formattedRealizePnL = Formater.isDecimalFormat(realizedPnL);
 
             if (valuation.equals(BigDecimal.ZERO)) {
                 formattedValuation = "N/A";
                 formattedUnrealizedPnL = "N/A";
             }else {
-                formattedValuation = Formater.isBigDecimalFormat(valuation);
-                formattedUnrealizedPnL = Formater.isBigDecimalFormat(unrealizedPnL);
+                formattedValuation = Formater.isDecimalFormat(valuation);
+                formattedUnrealizedPnL = Formater.isDecimalFormat(unrealizedPnL);
             }
 
-            System.out.printf("|  %4s  | %-30s | %15s | %16s | %15s | %15s | %15s |\n", ticker, name, quantity, formattedAverage, formattedRealizePnL, formattedValuation, formattedUnrealizedPnL);
+            System.out.printf("|  %4s  | %-30s | %15s | %16s | %15s | %15s | %15s |\n", ticker, name, formattedQuantity, formattedAverageUnitPrice, formattedRealizePnL, formattedValuation, formattedUnrealizedPnL);
         }
         System.out.println("|----------------------------------------------------------------------------------------------------------------------------------|");
     }

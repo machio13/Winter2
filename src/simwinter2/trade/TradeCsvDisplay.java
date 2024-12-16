@@ -18,7 +18,7 @@ public class TradeCsvDisplay extends CutName {
             String name = isCutName(trade.getTradeName());
             TradeSide side = trade.getTradeSide();
             String quantity = Formater.isLongFormat(trade.getTradeQuantity());
-            String unitPrice = Formater.isUnitPriceFormat(trade.getTradedUnitPrice());
+            String unitPrice = Formater.isDecimalFormat(trade.getTradedUnitPrice());
             String inputDatetime = Formater.isDatetimeFormat(trade.getInputDatetime());
 
             System.out.printf("| %16s |  %4s  | %-31s | %-4s | %12s | %16s | %15s |\n", tradedDatetime, ticker,  name, side, quantity, unitPrice, inputDatetime);
