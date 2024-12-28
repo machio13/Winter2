@@ -1,6 +1,5 @@
-package generalsimwinter.trade;
+package winter;
 
-import generalsimwinter.Checks;
 
 import java.io.File;
 import java.math.BigDecimal;

@@ -1,13 +1,4 @@
-package generalsimwinter.contact;
-
-import generalsimwinter.master.MasterCsvDisplay;
-import generalsimwinter.master.MasterCsvReader;
-import generalsimwinter.master.MasterCsvWriter;
-import generalsimwinter.master.Stock;
-import generalsimwinter.trade.Trade;
-import generalsimwinter.trade.TradeCsvDisplay;
-import generalsimwinter.trade.TradeCsvReader;
-import generalsimwinter.trade.TradeCsvWriter;
+package winter;
 
 import java.io.File;
 import java.util.List;

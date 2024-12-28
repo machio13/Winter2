@@ -1,7 +1,5 @@
-package generalsimwinter;
+package winter;
 
-import generalsimwinter.master.MasterCsvReader;
-import generalsimwinter.master.Stock;
 
 import java.io.File;
 import java.util.List;

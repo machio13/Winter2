@@ -1,4 +1,4 @@
-package generalsimwinter.master;
+package winter;
 
 import java.io.BufferedReader;
 import java.io.File;

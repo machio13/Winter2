@@ -1,4 +1,4 @@
-package generalsimwinter.trade;
+package winter;
 
 public enum TradeSide {
     Sell,

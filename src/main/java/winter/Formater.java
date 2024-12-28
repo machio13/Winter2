@@ -1,4 +1,4 @@
-package generalsimwinter;
+package winter;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

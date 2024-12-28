@@ -1,7 +1,4 @@
-package generalsimwinter.master;
-
-import generalsimwinter.CutName;
-import generalsimwinter.Formater;
+package winter;
 
 import java.util.List;
 

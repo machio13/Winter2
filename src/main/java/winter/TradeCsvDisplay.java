@@ -1,7 +1,5 @@
-package generalsimwinter.trade;
+package winter;
 
-import generalsimwinter.CutName;
-import generalsimwinter.Formater;
 
 import java.util.List;
 

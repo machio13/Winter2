@@ -1,4 +1,4 @@
-package generalsimwinter;
+package winter;
 
 public abstract class CutName {
 

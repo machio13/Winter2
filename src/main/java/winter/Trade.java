@@ -1,4 +1,4 @@
-package generalsimwinter.trade;
+package winter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
